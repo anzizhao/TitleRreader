@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "treeview", "treeview.vcxproj", "{85846AB9-E711-49E7-91C3-2120BE3BED05}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "regexp", "..\regexp\regexp.vcxproj", "{5BE4117E-C344-4A57-9BE0-D4AE2C6675B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85846AB9-E711-49E7-91C3-2120BE3BED05}.Debug|Win32.ActiveCfg = Debug|Win32
+		{85846AB9-E711-49E7-91C3-2120BE3BED05}.Debug|Win32.Build.0 = Debug|Win32
+		{85846AB9-E711-49E7-91C3-2120BE3BED05}.Release|Win32.ActiveCfg = Release|Win32
+		{85846AB9-E711-49E7-91C3-2120BE3BED05}.Release|Win32.Build.0 = Release|Win32
+		{5BE4117E-C344-4A57-9BE0-D4AE2C6675B4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5BE4117E-C344-4A57-9BE0-D4AE2C6675B4}.Debug|Win32.Build.0 = Debug|Win32
+		{5BE4117E-C344-4A57-9BE0-D4AE2C6675B4}.Release|Win32.ActiveCfg = Release|Win32
+		{5BE4117E-C344-4A57-9BE0-D4AE2C6675B4}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
