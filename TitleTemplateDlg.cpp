@@ -251,19 +251,7 @@ void TitleTemplateDlg::OnBnClickedTitlesetNum()
 }
 
 
-//void TitleTemplateDlg::OnBnClickedTitlesetAllchar()
-//{
-//	// TODO: 在此添加控件通知处理程序代码
-//	if ( m_curTitle == -1 )
-//	{
-//		MessageBoxW ( _T("please insert title firstly.")); 
-//		return ; 
-//	}
-//	// 
-//	
-//	m_titleTemplate[m_curTitle] += _T(".");
-//	showTitle(); 
-//}
+
 
 
 void TitleTemplateDlg::OnBnClickedTitlesetSamechar()
@@ -376,6 +364,8 @@ void TitleTemplateDlg::OnBnClickedTitlesetInseretbutton()
 		case _T('\\'):
 		case _T('.'):
 		case _T('+'):
+		case _T('*'):
+		case _T(']'):
 			*title += _T('\\'); 
 			*title +=  textChar ;
 			break; 
@@ -508,12 +498,13 @@ void TitleTemplateDlg::changeTitleToShow( UINT id, CString & showTitle)
 					showTitle += _T("\\");
 			else if ( curTitle->GetAt(pos) == _T(']') )
 					showTitle += _T("]");
+			else if ( curTitle->GetAt(pos) == _T('*') )
+					showTitle += _T("*");
 			if ( pos + 1 < curTitle->GetLength() && curTitle->GetAt(pos+1) == _T('+') )
 			{
-				++ pos; 
-			//	showTitle += curTitle->GetAt(pos); 
 				showTitle += _T("..."); 
 				showTitle += curTitle->GetAt(pos); 
+				++ pos; 
 			}
 			break; 
 		case _T('.'):

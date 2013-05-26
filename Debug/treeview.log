@@ -1,19 +1,12 @@
-﻿生成启动时间为 2013/5/24 17:47:27。
+﻿生成启动时间为 2013/5/26 16:44:03。
      1>项目“D:\project\test\treeview\treeview.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\treeview.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
          所有输出均为最新。
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\treeview.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt treeviewDlg.cpp
-         treeviewDlg.cpp
-     1>d:\project\test\treeview\treeviewdlg.cpp(535): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-     1>d:\project\test\treeview\treeviewdlg.cpp(542): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-     1>d:\project\test\treeview\treeviewdlg.cpp(550): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-     1>d:\project\test\treeview\treeviewdlg.cpp(679): warning C4018: “>”: 有符号/无符号不匹配
-     1>d:\project\test\treeview\treeviewdlg.cpp(808): warning C4002: “_T”宏的实参太多
-     1>d:\project\test\treeview\treeviewdlg.cpp(821): warning C4018: “<”: 有符号/无符号不匹配
-       ResourceCompile:
          所有输出均为最新。
+       ResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0804" /IDebug\ /nologo /fo"Debug\treeview.res" treeview.rc 
        ManifestResourceCompile:
          所有输出均为最新。
        Link:
@@ -28,7 +21,13 @@
          C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\treeview.exe.embed.manifest" /manifest Debug\treeview.exe.intermediate.manifest "C:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
          所有输出均为最新。
        LinkEmbedManifest:
-         所有输出均为最新。
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\project\test\treeview\Debug\treeview.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\treeview.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\project\test\treeview\Debug\treeview.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\project\test\treeview\Debug\treeview.lib" /MACHINE:X86 Debug\treeview.res
+         Debug\treeview.exe.embed.manifest.res
+         Debug\stdafx.obj
+         Debug\titleShowDlg.obj
+         Debug\TitleTemplateDlg.obj
+         Debug\treeview.obj
+         Debug\treeviewDlg.obj
          treeview.vcxproj -> D:\project\test\treeview\Debug\treeview.exe
        FinalizeBuildStatus:
          正在删除文件“Debug\treeview.unsuccessfulbuild”。
@@ -37,4 +36,4 @@
 
 生成成功。
 
-已用时间 00:00:02.24
+已用时间 00:00:05.62

@@ -374,8 +374,9 @@ bool CtreeviewDlg::readUnicodeFile(FILE *fp )
 
 void CtreeviewDlg::OnVscrollEdit1()
 {
-	// if the scroll message from the tree contorl select , it will do nothing . 
-	if ( m_treeCtl2Edit ){
+	// if the scroll message from the tree contorl select , it will do nothing .
+	// and if the tree item is empty. nothing to do also .
+	if ( m_treeCtl2Edit || m_treeCtl.GetCount() == 0){
 		m_treeCtl2Edit = false;	 
 		return ; 
 	}
@@ -528,9 +529,14 @@ void CtreeviewDlg::OnSize(UINT nType, int cx, int cy)
 		float widthMultiply , heightMultiply; 
 		widthMultiply = (float) rect.Width() / m_preRect.Width() ;
 		heightMultiply = ( float ) rect.Height() /m_preRect.Height(); 
-
+		// redraw setTitle button 
+		CWnd *pWnd = GetDlgItem ( IDC_BUTTON1  );
+		opRect = &m_rectFactors.setTitleButF ; 
+		left = opRect->left * widthMultiply + rect.left ; 
+		top  = rect.bottom - ( m_preRect.bottom - opRect->top );  ;  		
+		pWnd->MoveWindow ( left , top , opRect->Width(), opRect->Height() ); 
 		// redraw open file button 
-		CWnd *pWnd = GetDlgItem ( ID_FILE_OPEN );
+		pWnd = GetDlgItem ( ID_FILE_OPEN );
 		opRect = &m_rectFactors.openfileButF ; 
 		left = opRect->left * widthMultiply + rect.left ; 
 		top  = rect.bottom - ( m_preRect.bottom - opRect->top );  ;  		
@@ -574,6 +580,10 @@ void CtreeviewDlg::OnSize(UINT nType, int cx, int cy)
 		pWnd = GetDlgItem ( IDCANCEL  ); 
 		opRect = & m_rectFactors.cancelButF ; 
 		pWnd->MoveWindow ( opRect->left , opRect->top   , opRect->Width()  , opRect->Height() );
+
+		pWnd = GetDlgItem (  IDC_BUTTON1 ); 
+		opRect = & m_rectFactors.setTitleButF ; 
+		pWnd->MoveWindow ( opRect->left , opRect->top   , opRect->Width()  , opRect->Height() );
 	//	pWnd->MoveWindow ( opRect->left + rectWnd.left , opRect->top + rectWnd.top  , opRect->Width()  , opRect->Height() );
 	}
 	
@@ -599,6 +609,10 @@ void CtreeviewDlg::InitRectFactor(void)
 	pWnd = GetDlgItem ( IDCANCEL  ); 
 	pWnd->GetWindowRect ( &m_rectFactors.cancelButF );  
 	this->ScreenToClient (  &m_rectFactors.cancelButF );  
+
+	pWnd = GetDlgItem ( IDC_BUTTON1  ); 
+	pWnd->GetWindowRect ( &m_rectFactors.setTitleButF );  
+	this->ScreenToClient (  &m_rectFactors.setTitleButF ); 
 }
 
 
@@ -748,7 +762,7 @@ void CtreeviewDlg::AnalyseBB(UINT posStart, UINT posEnd, HTREEITEM treeID, UINT 
 		// 非第一标题
 		if (  preTitleEnd  )
 		{
-			AnalyseToTree ( preTitleEnd, result.GetStart(), preTreeItem, ++titlePos  ); 
+			AnalyseToTree ( preTitleEnd, result.GetStart(), preTreeItem, titlePos+1  ); 
 		}
 		titleEnd = _tcschr ( titleEnd , _T('\n'));
 		if ( titleEnd == NULL )
@@ -786,7 +800,7 @@ void CtreeviewDlg::AnalyseBA(UINT posStart, UINT posEnd, HTREEITEM treeID, UINT 
 		// 非第一标题
 		if (  preTitleEnd  )
 		{
-			AnalyseToTree ( preTitleEnd, titleStart-pszBuffer, preTreeItem, ++titlePos  ); 
+			AnalyseToTree ( preTitleEnd, titleStart-pszBuffer, preTreeItem, titlePos +1 ); 
 		}
 		preTreeItem = treeItem ; 
 		preTitleEnd = result.GetEnd(); 

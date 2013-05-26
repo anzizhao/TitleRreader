@@ -6,11 +6,15 @@
 using namespace std; 
 #pragma once
 
+
+// 记录原始控件的大小
 struct DlgContorlRectFactor {
-	CRect treeCtlF; 
-	CRect editCtlF; 
-	CRect openfileButF; 
-	CRect cancelButF; 
+	CRect treeCtlF;             //树控件
+	CRect editCtlF;             //编辑控件
+	CRect openfileButF;         //打开文件按钮
+	CRect cancelButF;           //删除按钮
+	CRect setTitleButF;         // 设置title按钮
+
 }; 
 
 // CtreeviewDlg 对话框
